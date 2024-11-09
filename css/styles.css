@@ -145,6 +145,7 @@ body {
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
   background-color: var(--bs-body-bg);
+  text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -186,7 +187,7 @@ h1,
 
   h1,
   .h1 {
-    font-size: 6rem;
+    font-size: 7rem;
   }
 }
 
@@ -199,7 +200,7 @@ h2,
 
   h2,
   .h2 {
-    font-size: 3.5rem;
+    font-size: 4rem;
   }
 }
 
@@ -212,7 +213,7 @@ h3,
 
   h3,
   .h3 {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
 }
 
@@ -225,7 +226,7 @@ h4,
 
   h4,
   .h4 {
-    font-size: 1.3rem;
+    font-size: 1.75rem;
   }
 }
 
@@ -406,7 +407,6 @@ caption {
 
 th {
   text-align: inherit;
-  text-align: -webkit-match-parent;
 }
 
 thead,
@@ -12697,9 +12697,7 @@ p.lead {
   font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   text-transform: none;
   font-weight: 450;
-  font-size: 1.2rem;
-  font-stretch: 90%; /* Condenses font width */
-  letter-spacing: -0.5px; /* Reduces space between letters */
+  font-size: 1.5rem;
 }
 
 
