@@ -11,6 +11,50 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+/* Scroll-to-top button styles */
+.scroll-progress {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #bd5e388e; /* Button color */
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  visibility: hidden; /* Initially hidden */
+  transition: opacity 0.3s ease;
+}
+
+.scroll-progress.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.scroll-progress .arrow-up {
+  position: absolute;
+  color: white;
+  font-size: 1.5em;
+}
+
+.progress-ring {
+  position: absolute;
+  transform: rotate(-90deg); /* Start from the top */
+}
+
+.progress-ring__circle {
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+/* Hide the button when at the top of the page */
+.scroll-progress:not(.visible) {
+  opacity: 0;
+}
+
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -4960,7 +5004,7 @@ fieldset:disabled .btn {
 
 .accordion {
   --bs-accordion-color: #212529;
-  --bs-accordion-bg: #fff;
+  --bs-accordion-bg: #faf2d5;
   --bs-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
   --bs-accordion-border-color: var(--bs-border-color);
   --bs-accordion-border-width: 1px;

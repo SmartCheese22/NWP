@@ -7,6 +7,61 @@
 // Scripts
 // 
 
+let currentSlideIndex = 0;
+const slides = document.querySelectorAll('.carousel-item');
+const indicators = document.querySelectorAll('.carousel-indicators button');
+
+function showSlide(index) {
+    slides[currentSlideIndex].classList.remove('active');
+    indicators[currentSlideIndex].classList.remove('active');
+    currentSlideIndex = index;
+    slides[currentSlideIndex].classList.add('active');
+    indicators[currentSlideIndex].classList.add('active');
+}
+
+function nextSlide() {
+    const newIndex = (currentSlideIndex + 1) % slides.length;
+    showSlide(newIndex);
+}
+
+function prevSlide() {
+    const newIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+    showSlide(newIndex);
+}
+
+
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+const progressCircle = document.querySelector(".progress-ring__circle");
+const radius = progressCircle.r.baseVal.value;
+const circumference = 2 * Math.PI * radius;
+
+// Set circle perimeter and initial offset
+progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+progressCircle.style.strokeDashoffset = circumference;
+
+function updateProgressCircle() {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollFraction = scrollTop / scrollHeight;
+    const offset = circumference - scrollFraction * circumference;
+    
+    progressCircle.style.strokeDashoffset = offset;
+
+    // Show/hide button based on scroll position
+    if (scrollTop > 100) {
+        scrollToTopBtn.classList.add("visible");
+    } else {
+        scrollToTopBtn.classList.remove("visible");
+    }
+}
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+window.addEventListener("scroll", updateProgressCircle);
+
+
 window.addEventListener('DOMContentLoaded', event => {
 
     // Activate Bootstrap scrollspy on the main nav element
